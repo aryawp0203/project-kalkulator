@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informasi kontak pengembang Aplikasi Kalkulator Modern.">
+    <title>Kontak Pengembang - Kalkulator Modern</title>
+    <script>
+        if (localStorage.getItem('calc_theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="about-body">
+    <main class="about-container">
+        <!-- Header Navigasi -->
+        <header class="calculator-header contact-header">
+            <div class="logo">
+                <i class="fa-solid fa-calculator"></i>
+                <span>Kalkulator</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="back-link">
+                    <i class="fa-solid fa-calculator"></i>
+                    Kalkulator
+                </a>
+                <a href="tentang.html" class="back-link">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Tentang
+                </a>
+                <button id="theme-toggle-btn" class="icon-btn" title="Ganti Tema" aria-label="Ganti Tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Intro Kontak -->
+        <section class="about-intro">
+            <span class="about-eyebrow">Informasi Kontak</span>
+            <h1>Kontak Pengembang</h1>
+            <p>
+                Punya pertanyaan, masukan, saran fitur, atau ingin berdiskusi mengenai proyek
+                <strong>Kalkulator Modern</strong> ini? Jangan ragu untuk menghubungi pengembang
+                melalui saluran informasi di bawah ini.
+            </p>
+        </section>
+
+        <!-- Saluran Kontak Utama -->
+        <section class="about-section" aria-labelledby="contact-channels-title">
+            <h2 id="contact-channels-title">Saluran Komunikasi</h2>
+            <div class="contact-grid">
+                <article class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>Kirimkan pesan langsung melalui surel resmi pengembang.</p>
+                        <a href="mailto:developer@pwd2026.local" class="contact-link">developer@pwd2026.local</a>
+                    </div>
+                </article>
+
+                <article class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>GitHub</h3>
+                        <p>Lihat repositori kode sumber dan kontribusi proyek.</p>
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link">github.com/developer</a>
+                    </div>
+                </article>
+
+                <article class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>WhatsApp / Telepon</h3>
+                        <p>Layanan pesan instan untuk respon yang lebih cepat.</p>
+                        <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="contact-link">+62 812-3456-7890</a>
+                    </div>
+                </article>
+
+                <article class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Institusi / Kelas</h3>
+                        <p>Pemrograman Web Dasar (PWD) 2026</p>
+                        <span class="contact-badge">Tahun Akademik 2026</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Formulir Kirim Pesan -->
+        <section class="about-section" aria-labelledby="contact-form-title">
+            <h2 id="contact-form-title">Kirim Pesan Langsung</h2>
+            <form id="contact-form" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="name" placeholder="Contoh: Budi Pratama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subjek Pesan</label>
+                    <input type="text" id="subject" name="subject" placeholder="Topik atau pertanyaan Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Pesan Anda</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Tuliskan pesan, tanggapan, atau saran Anda di sini..." required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Kirim Pesan
+                    </button>
+                </div>
+
+                <div id="form-alert" class="form-alert" style="display: none;" role="alert"></div>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        // Inisialisasi Tema Gelap / Terang
+        const themeBtn = document.getElementById('theme-toggle-btn');
+        function updateThemeIcon() {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (isLight) {
+                themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+                themeBtn.title = 'Ganti ke Mode Gelap';
+            } else {
+                themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+                themeBtn.title = 'Ganti ke Mode Terang';
+            }
+        }
+        updateThemeIcon();
+
+        themeBtn.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            if (isLight) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('calc_theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('calc_theme', 'light');
+            }
+            updateThemeIcon();
+        });
+
+        // Penanganan Formulir Kontak
+        const contactForm = document.getElementById('contact-form');
+        const formAlert = document.getElementById('form-alert');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+
+            formAlert.className = 'form-alert success';
+            formAlert.innerHTML = `<i class="fa-solid fa-circle-check"></i> Terima kasih, <strong>${name}</strong>! Pesan Anda telah berhasil dikirim.`;
+            formAlert.style.display = 'flex';
+
+            contactForm.reset();
+
+            setTimeout(() => {
+                formAlert.style.display = 'none';
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
+
