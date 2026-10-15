@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Informasi fitur, teknologi, dan cara menggunakan Aplikasi Kalkulator Modern.">
+    <title>Tentang Aplikasi - Kalkulator Modern</title>
+    <script>
+        if (localStorage.getItem('calc_theme') === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="about-body">
+    <main class="about-container">
+        <header class="calculator-header">
+            <div class="logo">
+                <i class="fa-solid fa-calculator"></i>
+                <span>Kalkulator</span>
+            </div>
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                Kembali ke kalkulator
+            </a>
+        </header>
+
+        <section class="about-intro">
+            <span class="about-eyebrow">Tentang Aplikasi</span>
+            <h1>Kalkulator Modern</h1>
+            <p>
+                Kalkulator berbasis web yang responsif dan mudah digunakan untuk kebutuhan
+                perhitungan sehari-hari. Dibangun dengan HTML, CSS, dan JavaScript tanpa
+                framework tambahan.
+            </p>
+        </section>
+
+        <section class="about-section" aria-labelledby="features-title">
+            <h2 id="features-title">Fitur utama</h2>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <i class="fa-solid fa-square-root-variable" aria-hidden="true"></i>
+                    <h3>Perhitungan lengkap</h3>
+                    <p>
+                        Penjumlahan, pengurangan, perkalian, pembagian, persentase
+                        kalkulatif (misalnya 200 + 10% = 220), dan pengubahan tanda
+                        bilangan. Pembagian dengan nol ditangani, dan hasil dihitung
+                        dengan presisi desimal yang lebih baik.
+                    </p>
+                </article>
+                <article class="feature-card">
+                    <i class="fa-solid fa-palette" aria-hidden="true"></i>
+                    <h3>Tampilan nyaman</h3>
+                    <p>
+                        Pilih mode gelap atau terang. Tampilan responsif, format angka
+                        Indonesia menggunakan titik untuk ribuan dan koma untuk desimal,
+                        serta ukuran angka menyesuaikan panjang hasil.
+                    </p>
+                </article>
+                <article class="feature-card">
+                    <i class="fa-solid fa-clock-rotate-left" aria-hidden="true"></i>
+                    <h3>Riwayat perhitungan</h3>
+                    <p>
+                        Riwayat tersimpan di browser, dapat digunakan kembali, dan bisa
+                        dihapus kapan saja.
+                    </p>
+                </article>
+                <article class="feature-card">
+                    <i class="fa-regular fa-keyboard" aria-hidden="true"></i>
+                    <h3>Dukungan keyboard</h3>
+                    <p>
+                        Masukkan angka dengan 0–9 dan operator +, -, *, atau /. Gunakan
+                        Enter atau = untuk menghitung, % untuk persentase, Backspace
+                        untuk menghapus, Escape untuk membersihkan, dan H untuk membuka
+                        riwayat.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-section about-usage" aria-labelledby="usage-title">
+            <h2 id="usage-title">Cara menjalankan</h2>
+            <p>
+                Jalankan melalui Laragon atau web server lokal, lalu buka
+                <code>http://localhost/pwd-2026/project-kalkulator/</code>.
+                Anda juga dapat membuka berkas <code>index.html</code> langsung di
+                browser.
+            </p>
+        </section>
+    </main>
+</body>
+</html>
