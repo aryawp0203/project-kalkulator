@@ -41,6 +41,7 @@ Aplikasi kalkulator berbasis web yang responsif, modern, dan kaya fitur. Diranca
 project-kalkulator/
 │
 ├── index.html     # Struktur tampilan semantik dan layout kalkulator
+├── tentang.html   # Informasi fitur dan cara menjalankan aplikasi
 ├── style.css      # Styling tampilan modern, tema dark/light, dan animasi
 ├── script.js      # Logika komputasi, event keyboard, tema, dan riwayat
 └── README.md      # Dokumentasi proyek
@@ -61,4 +62,3 @@ Karena proyek ini berbasis web standar (HTML, CSS, dan JavaScript vanila), Anda 
 
 2. **Membuka Langsung (Direct File)**:
    - Cukup klik dua kali berkas `index.html` pada File Explorer untuk membukanya di browser apa pun (Google Chrome, Microsoft Edge, Mozilla Firefox, dll).
-
