@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Kalkulator Modern</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk ikon tombol -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="calculator-container">
+        <!-- Header: Judul & Tombol Kontrol Tema / Riwayat -->
+        <header class="calculator-header">
+            <div class="logo">
+                <i class="fa-solid fa-calculator"></i>
+                <span>Kalkulator</span>
+            </div>
+            <div class="header-actions">
+                <button id="history-toggle-btn" class="icon-btn" title="Lihat Riwayat (H)">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </button>
+                <button id="theme-toggle-btn" class="icon-btn" title="Ganti Tema">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Layar Tampilan (Display) -->
+        <div class="display-container">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
+        </div>
+
+        <!-- Panel Riwayat Kalkulasi (Slide down / overlay) -->
+        <div class="history-panel" id="history-panel">
+            <div class="history-header">
+                <h3>Riwayat Perhitungan</h3>
+                <button id="clear-history-btn" class="clear-history-btn" title="Hapus Semua Riwayat">
+                    <i class="fa-regular fa-trash-can"></i> Hapus
+                </button>
+            </div>
+            <div class="history-list" id="history-list">
+                <p class="empty-history">Belum ada riwayat perhitungan.</p>
+            </div>
+        </div>
+
+        <!-- Papan Tombol Kalkulator (Keypad) -->
+        <div class="keypad">
+            <button class="btn btn-action" data-action="clear" title="Bersihkan Semua (Esc)">AC</button>
+            <button class="btn btn-action" data-action="delete" title="Hapus Karakter Terakhir (Backspace)">DEL</button>
+            <button class="btn btn-action" data-action="percent" title="Persen (%)">%</button>
+            <button class="btn btn-operator" data-operator="÷" title="Bagi (/)">÷</button>
+
+            <button class="btn btn-number" data-number="7">7</button>
+            <button class="btn btn-number" data-number="8">8</button>
+            <button class="btn btn-number" data-number="9">9</button>
+            <button class="btn btn-operator" data-operator="×" title="Kali (*)">×</button>
+
+            <button class="btn btn-number" data-number="4">4</button>
+            <button class="btn btn-number" data-number="5">5</button>
+            <button class="btn btn-number" data-number="6">6</button>
+            <button class="btn btn-operator" data-operator="−" title="Kurang (-)">−</button>
+
+            <button class="btn btn-number" data-number="1">1</button>
+            <button class="btn btn-number" data-number="2">2</button>
+            <button class="btn btn-number" data-number="3">3</button>
+            <button class="btn btn-operator" data-operator="+" title="Tambah (+)">+</button>
+
+            <button class="btn btn-action" data-action="toggle-sign" title="Ubah Tanda Positif/Negatif">±</button>
+            <button class="btn btn-number" data-number="0">0</button>
+            <button class="btn btn-number" data-number="." title="Koma / Titik Desimal">.</button>
+            <button class="btn btn-equals" data-action="calculate" title="Hasil (= / Enter)">=</button>
+        </div>
+
+        <!-- Petunjuk Shortcut Keyboard -->
+        <footer class="calculator-footer">
+            <p><small><i class="fa-regular fa-keyboard"></i> Mendukung input keyboard (0-9, +, -, *, /, Enter, Backspace, Esc)</small></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

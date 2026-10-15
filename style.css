@@ -1,0 +1,427 @@
+/* ======================================================
+   ROOT VARIABLES (Tema Gelap & Terang)
+   ====================================================== */
+:root {
+    /* Palet Default: Dark Mode */
+    --bg-body: #0d1117;
+    --bg-calculator: rgba(22, 27, 34, 0.85);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.45);
+
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-accent: #58a6ff;
+
+    --btn-num-bg: #21262d;
+    --btn-num-hover: #30363d;
+    --btn-num-text: #f0f6fc;
+
+    --btn-act-bg: #30363d;
+    --btn-act-hover: #3c444d;
+    --btn-act-text: #79c0ff;
+
+    --btn-op-bg: #1f6feb;
+    --btn-op-hover: #388bfd;
+    --btn-op-text: #ffffff;
+
+    --btn-eq-bg: #238636;
+    --btn-eq-hover: #2ea043;
+    --btn-eq-text: #ffffff;
+
+    --display-bg: rgba(13, 17, 23, 0.6);
+    --panel-bg: rgba(22, 27, 34, 0.95);
+
+    --radius-calc: 24px;
+    --radius-btn: 16px;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --transition-speed: 0.2s;
+}
+
+/* Light Mode Overrides */
+[data-theme="light"] {
+    --bg-body: #f3f4f6;
+    --bg-calculator: rgba(255, 255, 255, 0.9);
+    --border-color: rgba(0, 0, 0, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.12);
+
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-accent: #2563eb;
+
+    --btn-num-bg: #f9fafb;
+    --btn-num-hover: #f3f4f6;
+    --btn-num-text: #111827;
+
+    --btn-act-bg: #e5e7eb;
+    --btn-act-hover: #d1d5db;
+    --btn-act-text: #1d4ed8;
+
+    --btn-op-bg: #3b82f6;
+    --btn-op-hover: #2563eb;
+    --btn-op-text: #ffffff;
+
+    --btn-eq-bg: #10b981;
+    --btn-eq-hover: #059669;
+    --btn-eq-text: #ffffff;
+
+    --display-bg: rgba(243, 244, 246, 0.7);
+    --panel-bg: rgba(255, 255, 255, 0.97);
+}
+
+/* ======================================================
+   RESET & DASAR
+   ====================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-body);
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 139, 253, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(35, 134, 54, 0.12) 0%, transparent 40%);
+    color: var(--text-primary);
+    padding: 16px;
+    transition: background-color var(--transition-speed) ease;
+}
+
+/* ======================================================
+   WADAH UTAMA KALKULATOR
+   ====================================================== */
+.calculator-container {
+    width: 100%;
+    max-width: 380px;
+    background: var(--bg-calculator);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-calc);
+    box-shadow: 0 20px 40px var(--shadow-color);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+.calculator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.calculator-header .logo i {
+    color: var(--text-accent);
+}
+
+.header-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: all var(--transition-speed) ease;
+}
+
+.icon-btn:hover {
+    background: var(--btn-num-hover);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.icon-btn:active {
+    transform: scale(0.95);
+}
+
+/* ======================================================
+   LAYAR TAMPILAN (DISPLAY)
+   ====================================================== */
+.display-container {
+    background: var(--display-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    min-height: 105px;
+    word-break: break-all;
+    word-wrap: break-word;
+    overflow-x: auto;
+    transition: background var(--transition-speed) ease;
+}
+
+.previous-operand {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    min-height: 22px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.current-operand {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+    transition: font-size 0.15s ease;
+}
+
+/* ======================================================
+   PAPAN TOMBOL (KEYPAD)
+   ====================================================== */
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+.btn {
+    height: 58px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-btn);
+    font-size: 1.35rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn:active, .btn.keyboard-active {
+    transform: scale(0.92);
+    filter: brightness(0.9);
+}
+
+/* Tombol Angka */
+.btn-number {
+    background: var(--btn-num-bg);
+    color: var(--btn-num-text);
+}
+
+.btn-number:hover {
+    background: var(--btn-num-hover);
+}
+
+/* Tombol Aksi Fungsional (AC, DEL, %, ±) */
+.btn-action {
+    background: var(--btn-act-bg);
+    color: var(--btn-act-text);
+    font-size: 1.15rem;
+}
+
+.btn-action:hover {
+    background: var(--btn-act-hover);
+}
+
+/* Tombol Operator (+, -, *, /) */
+.btn-operator {
+    background: var(--btn-op-bg);
+    color: var(--btn-op-text);
+    font-size: 1.4rem;
+}
+
+.btn-operator:hover {
+    background: var(--btn-op-hover);
+}
+
+/* Tombol Sama Dengan (=) */
+.btn-equals {
+    background: var(--btn-eq-bg);
+    color: var(--btn-eq-text);
+    font-size: 1.5rem;
+}
+
+.btn-equals:hover {
+    background: var(--btn-eq-hover);
+}
+
+/* ======================================================
+   PANEL RIWAYAT (HISTORY PANEL)
+   ====================================================== */
+.history-panel {
+    position: absolute;
+    top: 64px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.history-panel.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 12px;
+}
+
+.history-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.clear-history-btn {
+    background: transparent;
+    border: none;
+    color: #f85149;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s ease;
+}
+
+.clear-history-btn:hover {
+    background: rgba(248, 81, 73, 0.15);
+}
+
+.history-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 4px;
+}
+
+.history-item {
+    padding: 10px 12px;
+    background: var(--display-bg);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    border: 1px solid transparent;
+}
+
+.history-item:hover {
+    background: var(--btn-num-hover);
+    border-color: var(--border-color);
+    transform: translateX(3px);
+}
+
+.history-item-exp {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    text-align: right;
+}
+
+.history-item-res {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-accent);
+    text-align: right;
+}
+
+.empty-history {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* ======================================================
+   FOOTER INFO
+   ====================================================== */
+.calculator-footer {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.78rem;
+    line-height: 1.3;
+}
+
+/* Custom Scrollbar */
+.history-list::-webkit-scrollbar,
+.display-container::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.history-list::-webkit-scrollbar-thumb,
+.display-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+/* ======================================================
+   RESPONSIVE DESIGN
+   ====================================================== */
+@media (max-width: 420px) {
+    .calculator-container {
+        padding: 16px;
+        border-radius: 20px;
+        gap: 14px;
+    }
+
+    .btn {
+        height: 52px;
+        font-size: 1.2rem;
+    }
+
+    .current-operand {
+        font-size: 1.85rem;
+    }
+}
+
