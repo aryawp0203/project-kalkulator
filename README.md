@@ -42,6 +42,7 @@ project-kalkulator/
 │
 ├── index.html     # Struktur tampilan semantik dan layout kalkulator
 ├── tentang.html   # Informasi fitur dan cara menjalankan aplikasi
+├── kontak.html    # Halaman informasi kontak & profil pengembang
 ├── style.css      # Styling tampilan modern, tema dark/light, dan animasi
 ├── script.js      # Logika komputasi, event keyboard, tema, dan riwayat
 └── README.md      # Dokumentasi proyek
